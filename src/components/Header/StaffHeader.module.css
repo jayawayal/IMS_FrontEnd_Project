@@ -1,0 +1,67 @@
+/* =========================
+   STAFF HEADER NAVBAR - ROYAL BLUE & WHITE THEME
+========================= */
+.staffNavbar {
+  background: linear-gradient(90deg, #0a2e66, #1b4f91);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+}
+
+/* Navbar container spacing */
+.staffNavbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Brand styling */
+.staffNavbarBrand {
+  color: #ffffff !important;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect on the whole brand (logo + text together) */
+.staffNavbarBrand:hover {
+  color: #d1e4ff !important;
+  transform: scale(1.05);
+}
+
+/* Logo image */
+.staffNavbarLogo {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.staffNavbarLogo:hover {
+  transform: scale(1.15);
+}
+
+/* Logout button */
+.staffNavbarLogout {
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 2rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.staffNavbarLogout:hover {
+  color: #cfdfff !important;
+  transform: translateY(-1px);
+}
+
+/* Mobile menu toggle button */
+:global(.navbar-toggler) {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+:global(.navbar-toggler-icon) {
+  filter: invert(1); /* Makes the hamburger icon white */
+}

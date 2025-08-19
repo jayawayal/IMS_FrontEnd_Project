@@ -1,0 +1,61 @@
+.adminHeaderNavbar {
+  background: linear-gradient(180deg, #0a2e66, #1b4f91);
+  padding: 10px 20px;
+  display: flex !important;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.adminHeaderContainer {
+  display: flex !important;
+  justify-content: flex-start; /* desktop */
+  align-items: center;
+  width: 100%;
+}
+
+.adminHeaderBrand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Logo styles + effect */
+.adminHeaderLogo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+/* Title styles + effect */
+.adminHeaderTitle {
+  color: #fff;
+  transition: color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.adminHeaderTitle:hover {
+  color: #d1e4ff;
+  transform: scale(1.08);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .adminHeaderContainer {
+    justify-content: center !important; /* centered on mobile */
+  }
+
+  .adminHeaderBrand {
+    font-size: 1.4rem;
+  }
+
+  .adminHeaderLogo {
+    width: 35px;
+    height: 35px;
+  }
+}

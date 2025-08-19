@@ -1,0 +1,30 @@
+.footer-wrapper {
+  background-color: #fafbfd;
+  color: rgb(16, 1, 1);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: auto;
+}
+
+.footer-wrapper .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-links a {
+  color: #090808;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #4dda7a; /* Amber highlight on hover */
+}

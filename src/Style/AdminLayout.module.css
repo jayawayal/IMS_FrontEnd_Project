@@ -1,0 +1,92 @@
+/* ===== Page Layout ===== */
+.adminPage {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f6f8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ===== Sidebar ===== */
+.adminSidebar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #002060;
+  color: #fff;
+  z-index: 1000;
+}
+
+/* ===== Header ===== */
+.adminHeader {
+  position: fixed;
+  top: 0;
+  left: 250px;                /* offset by sidebar */
+  right: 0;
+  height: 70px;
+  z-index: 900;
+  width: calc(100% - 250px);  /* auto adjust width */
+}
+
+/* ===== Main Content ===== */
+.mainContent {
+  margin-left: 250px;         /* offset sidebar */
+  margin-top: 70px;           /* offset header */
+  padding: 30px 20px;
+  flex: 1;
+  overflow-y: auto;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;   /* horizontal center */
+  align-items: flex-start; 
+}
+
+.adminContainer {
+  flex: 1;
+  padding: 20px;   /* Keep only vertical padding */
+  margin: 0;       /* REMOVE horizontal margin */
+  background-color: #f4f6f9; /* Light background */
+  min-height: 100vh;
+  box-sizing: border-box;
+  /* display: flex;
+  justify-content: center;
+  flex-direction: column; */
+}
+.container-fluid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* ===== Card ===== */
+.adminCard {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 35px 30px;
+  width: 100%;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .adminSidebar {
+    left: -250px;
+    transition: left 0.3s ease;
+  }
+
+  .adminSidebar.open {
+    left: 0;
+  }
+
+  .adminHeader {
+    left: 0;
+    width: 100%;
+  }
+
+  .mainContent {
+    margin-left: 0;
+    margin-top: 70px;
+  }
+}

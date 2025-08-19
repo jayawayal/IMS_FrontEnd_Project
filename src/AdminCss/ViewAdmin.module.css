@@ -1,0 +1,141 @@
+.adminPage {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8faff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Sidebar takes fixed width, so push content */
+.adminContainer {
+  flex: 1;
+  padding: 30px;
+  margin-left: 250px; /* Same width as AdminSidebar */
+  transition: margin-left 0.3s ease;
+}
+
+.adminCard {
+  border: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  border-radius: 14px;
+  background-color: #ffffff;
+  padding: 15px;
+  width:100%;
+}
+
+.cardTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  color: #002060;
+}
+
+/* Table */
+.adminTable {
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 1.4rem;
+}
+
+.adminTable thead {
+  background-color: #002060;
+  color: #ffffff;
+  font-size: 1.4rem;
+}
+
+.adminTable th,
+.adminTable td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 12px 10px;
+  color: #002060;
+}
+
+.adminTable tbody tr:nth-of-type(odd) {
+  background-color: #f4f8ff;
+}
+
+.adminTable tbody tr:hover {
+  background-color: #e1ebff;
+  transition: background 0.2s ease-in-out;
+}
+
+/* Buttons */
+.adminActionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 5px;
+  padding: 6px 12px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.adminEditBtn {
+  background-color: #4169e1;
+  color: #ffffff;
+}
+
+.adminEditBtn:hover {
+  background-color: #274bb5;
+  transform: scale(1.05);
+}
+
+.adminDeleteBtn {
+  background-color: #ff4d4d;
+  color: #ffffff;
+}
+
+.adminDeleteBtn:hover {
+  background-color: #cc0000;
+  transform: scale(1.05);
+}
+
+/* Messages */
+.adminError {
+  color: #e60000;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.adminSuccess {
+  color: #008000;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 992px) {
+  .adminContainer {
+    margin-left: 0; /* No sidebar on small screens */
+    padding: 20px;
+  }
+
+  .cardTitle {
+    font-size: 1.6rem;
+  }
+
+  .adminTable {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .adminActionBtn {
+    font-size: 1.2rem;
+    padding: 4px 8px;
+  }
+
+  .cardTitle {
+    font-size: 1.4rem;
+  }
+}

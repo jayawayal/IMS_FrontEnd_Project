@@ -1,0 +1,148 @@
+/* ===== Page Layout ===== */
+.staffPage {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f6f8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ===== Sidebar ===== */
+.staffSidebar {
+  flex: 0 0 250px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+}
+
+/* ===== Content Container ===== */
+.staffContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* ===== Card ===== */
+.staffCard {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 35px 30px;
+  width: 100%;
+  max-width: 900px;
+  transition: all 0.3s ease;
+}
+
+/* ===== Card Title ===== */
+.staffCardTitle {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #002060;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* ===== Form Inputs ===== */
+.staffForm .form-control {
+  font-size: 1.6rem;
+  padding: 14px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: all 0.2s ease-in-out;
+  height: 50px;
+}
+
+.staffForm .form-control:focus {
+  border-color: #4169E1;
+  box-shadow: 0 0 5px rgba(65, 105, 225, 0.4);
+  outline: none;
+}
+
+/* Textarea */
+.staffForm textarea.form-control {
+  min-height: 100px;
+  resize: vertical;
+  font-size: 1.6rem;
+  padding: 12px 15px;
+}
+
+/* ===== Labels ===== */
+.formLabel {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #002060;
+}
+
+/* ===== Button ===== */
+.staffBtnWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.staffBtn {
+  font-size: 1.7rem;
+  padding: 14px 25px;
+  border-radius: 8px;
+  background-color: #4169E1;
+  color: #fff;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(65, 105, 225, 0.3);
+}
+
+.staffBtn:hover {
+  background-color: #365ac0;
+  box-shadow: 0 6px 16px rgba(54, 90, 192, 0.4);
+}
+
+/* ===== Messages ===== */
+.staffMessageSuccess {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  text-align: center;
+  color: green;
+}
+
+.staffMessageError {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  text-align: center;
+  color: red;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .staffPage {
+    flex-direction: column;
+  }
+
+  .staffSidebar {
+    width: 100%;
+    position: relative;
+    height: auto;
+    box-shadow: none;
+  }
+
+  .staffContainer {
+    padding: 20px;
+    align-items: center;
+  }
+
+  .staffCard {
+    padding: 25px 20px;
+  }
+
+  .staffCardTitle {
+    font-size: 1.8rem;
+  }
+}

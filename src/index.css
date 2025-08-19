@@ -1,0 +1,194 @@
+/* =========================
+   Global & Utility Styles
+   ========================= */
+
+/* Reset and base font size */
+html {
+  font-size: 10px;
+  overflow: hidden auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  overflow-y: scroll; /* allows vertical scroll */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+}
+html, body {
+  overflow: hidden auto; /* disables scrolling completely */
+  height: 100%;
+}
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+/* =========================
+   Background Section
+   ========================= */
+.bg {
+  position: relative; /* ensures overlay stays inside */
+  padding: 20px;
+  color: #fff;
+  background-image: url("/bg-3.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1; /* keeps text above overlay */
+  
+}
+
+.bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1; /* puts overlay behind content */
+}
+
+/* =========================
+   Typography
+   ========================= */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0.5em 0;
+}
+
+p {
+  margin: 0.5em 0;
+  line-height: 1.6;
+}
+
+/* =========================
+   Animations
+   ========================= */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-3rem); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Utility classes for animations */
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.slide-down {
+  animation: slideDown 0.8s ease-in-out;
+}
+
+/* =========================
+   Login Modal Styling
+   ========================= */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease-in-out;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.modal-container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.4s ease;
+  backdrop-filter: blur(5px);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Responsive modal adjustments */
+@media (max-width: 480px) {
+  .modal-container {
+    max-width: 90vw;
+    padding: 1.5rem 1rem;
+  }
+
+  .modal-input {
+    font-size: 1.2rem;
+  }
+
+  .modal-submit-btn {
+    font-size: 1.4rem;
+    padding: 0.8rem;
+  }
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #555;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal-close-btn:hover {
+  color: #ff4d4d;
+}
+
+.modal-input {
+  width: 100%;
+  padding: 1rem;
+  margin: 0.8rem 0;
+  border-radius: 0.6rem;
+  border: 1px solid #ccc;
+  font-size: 1.4rem;
+  outline: none;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.modal-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.modal-submit-btn {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.6rem;
+  font-size: 1.6rem;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.modal-submit-btn:hover {
+  background: #0056b3;
+}
+
+.modal-error {
+  margin-top: 1rem;
+  color: #ff4d4d;
+  font-size: 1.3rem;
+  text-align: center;
+}

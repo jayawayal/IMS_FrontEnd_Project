@@ -1,0 +1,23 @@
+.staffPanel {
+  display: flex;
+  height: 100vh; /* full viewport height */
+  overflow: hidden;
+}
+
+.sidebarContainer {
+  width: 240px; /* match sidebar width */
+  flex-shrink: 0;
+}
+
+.mainContainer {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: auto; /* scroll if content exceeds */
+}
+
+.staffContent {
+  flex-grow: 1;
+  background-color: #f5f5f5; /* optional for content background */
+  overflow: auto;
+}

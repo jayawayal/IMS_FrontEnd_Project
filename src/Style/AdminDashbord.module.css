@@ -1,0 +1,98 @@
+.adminPanel {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f5f8fc;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1e2a38;
+}
+
+/* =========================
+   CONTENT WRAPPER
+========================= */
+.contentWrapper {
+  padding: 1.5rem;
+}
+
+/* =========================
+   STATISTICS CARDS
+========================= */
+.statsCard {
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.statsCard h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-top: 0.4rem;
+}
+
+.statsCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* Gradient Backgrounds */
+.bgColor1 {
+  background: linear-gradient(135deg, #3b6fb6, #5c94d6);
+  color: white;
+}
+
+.bgColor2 {
+  background: linear-gradient(135deg, #4a80c5, #6fa8dc);
+  color: white;
+}
+
+.bgColor3 {
+  background: linear-gradient(135deg, #3a66a0, #619bd1);
+  color: white;
+}
+
+/* =========================
+   CHART CARDS
+========================= */
+.chartCard {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 400px;
+}
+
+.chartCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.08);
+}
+
+.chartTitle {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1b4f91;
+}
+
+/* =========================
+   CHART COLORS VARIABLES
+========================= */
+:root {
+  --chart-color-1: #3b6fb6;
+  --chart-color-2: #4a80c5;
+  --chart-color-3: #5c94d6;
+  --chart-color-4: #6fa8dc;
+  --bar-chart-color: #1b4f91;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .statsCard {
+    margin-bottom: 15px;
+  }
+}

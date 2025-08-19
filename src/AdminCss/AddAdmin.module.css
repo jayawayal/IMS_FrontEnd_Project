@@ -1,0 +1,194 @@
+/* ===== Page Layout ===== */
+.adminPage {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f6f8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ===== Sidebar ===== */
+.adminSidebar {
+  flex: 0 0 250px;
+  height: 100vh;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+  z-index: 1000;
+}
+
+/* ===== Header ===== */
+.adminHeader {
+  background: #002060;
+  height: 70px;
+  padding: 15px 20px;
+  position: fixed;
+  top: 0;
+  left: 250px;               /* beside sidebar */
+  right: 0;
+  width: calc(100% - 250px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  z-index: 900;
+}
+
+/* ===== Main Content Wrapper ===== */
+.mainContent {
+  margin-left: 250px;       /* offset sidebar */
+  padding: 30px 20px;
+  padding-top: 100px;       /* offset header */
+  flex: 1;
+  box-sizing: border-box;
+}
+
+/* ===== Content Container ===== */
+.adminContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;               /* avoid double spacing */
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Card ===== */
+.adminCard {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 35px 30px;
+  width: 100%;
+  max-width: 900px;
+  transition: all 0.3s ease;
+}
+
+/* ===== Card Title ===== */
+.cardTitle {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #002060;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* ===== Form Inputs ===== */
+.adminForm .form-control {
+  font-size: 1.6rem;
+  padding: 14px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: all 0.2s ease-in-out;
+  height: 50px;
+}
+
+.adminForm .form-control:focus {
+  border-color: #4169E1;
+  box-shadow: 0 0 5px rgba(65, 105, 225, 0.4);
+  outline: none;
+}
+
+.adminForm textarea.form-control {
+  min-height: 100px;
+  resize: vertical;
+  font-size: 1.6rem;
+  padding: 12px 15px;
+}
+
+/* ===== Labels ===== */
+.formLabel {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #002060;
+}
+
+/* ===== Button ===== */
+.adminBtnWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.adminBtn {
+  font-size: 1.7rem;
+  padding: 14px 25px;
+  border-radius: 8px;
+  background-color: #4169E1;
+  color: #fff;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(65, 105, 225, 0.3);
+}
+
+.adminBtn:hover {
+  background-color: #365ac0;
+  box-shadow: 0 6px 16px rgba(54, 90, 192, 0.4);
+}
+
+/* ===== Messages ===== */
+.adminMessageSuccess {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  text-align: center;
+  color: green;
+}
+
+.adminMessageError {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  text-align: center;
+  color: red;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .adminPage {
+    flex-direction: column;
+  }
+
+  .adminSidebar {
+    position: fixed;
+    left: -260px;     /* hidden off screen */
+    top: 0;
+    height: 100vh;
+    width: 250px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+  .adminSidebar.active {
+    left: 0;
+  }
+
+  .adminHeader {
+    left: 0; 
+    width: 100%;
+  }
+
+  .mainContent {
+    width: 100%;
+    margin-left: 0;
+    padding-top: 100px;
+  }
+
+  .adminContainer {
+    padding: 20px;
+    align-items: center;
+  }
+
+  .adminCard {
+    padding: 25px 20px;
+  }
+
+  .cardTitle {
+    font-size: 1.8rem;
+  }
+}

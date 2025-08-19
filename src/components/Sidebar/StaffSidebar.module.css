@@ -1,0 +1,168 @@
+.staffSidebar {
+  height: 100vh;
+  background: linear-gradient(180deg, #0a2e66, #1b4f91);
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-family: "Segoe UI", sans-serif;
+  overflow: hidden;
+  gap: 10px;
+}
+
+.staffSidebarHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.staffSidebarHeader h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.staffSidebarIcon {
+  font-size: 2rem;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.staffSidebarMenu {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  gap: 10px;
+}
+
+.staffSidebarMenuItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s;
+  font-size: 1.4rem;
+}
+
+.staffSidebarMenuItem:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.staffSidebarMenuItem.active {
+  background: #fff;
+  color: #0a2e66;
+  font-weight: 600;
+}
+
+/* Parent menu */
+.staffSidebarMenuParentTitle {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  cursor: pointer;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.4rem;
+}
+
+.staffSidebarArrow {
+  font-size: 1.2rem;
+}
+
+.staffSidebarSubmenu {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+
+.staffSidebarMenuParentOpen .staffSidebarSubmenu {
+  max-height: 200px;
+}
+
+.staffSidebarSubmenuItem {
+  padding: 8px 20px 8px 40px;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.staffSidebarSubmenuItem:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.staffSidebarSubmenuItem.active {
+  background: #fff;
+  color: #0a2e66;
+  font-weight: 600;
+}
+
+/* Mobile toggle button */
+.mobileMenuToggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1001;
+  color: #0a2e66;
+  cursor: pointer;
+}
+
+/* Mobile sidebar */
+.staffSidebarMobile {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100vh;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.staffSidebarMobileOpen {
+  left: 0;
+}
+
+/* Overlay effect for mobile */
+.staffSidebarMobileOpen::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 260px;
+  width: calc(100% - 260px);
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .mobileMenuToggle {
+    color: #fff;
+    font-size: 2px;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  .mobileMenuToggle:hover {
+    color: #ff6b6b;
+    transform: scale(1.2);
+  }
+
+  .staffSidebarHeader {
+    display: flex;
+    justify-content: center;
+  }
+}
