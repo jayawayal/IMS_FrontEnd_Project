@@ -15,7 +15,7 @@ import EditCategory from "./CategoryComponents/EditCategory.jsx";
 import AddSupplier from "./SupplierComponent/AddSupplier.jsx";
 import ViewSupplier from "./SupplierComponent/ViewSupplier.jsx";
 import EditSupplier from "./SupplierComponent/EditSupplier.jsx";
-// ✅ Layout component for Admin (Sidebar + Header)
+
 import Sidebar from "./components/Sidebar/AdminSidebar.jsx";
 import Header from "./components/Header/AdminHeader.jsx";
 
@@ -89,6 +89,25 @@ export default function App() {
         <Route
           path="/staff-panel"
           element={token && role?.toLowerCase() === "staff" ? <StaffPanel /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/add-admin"
+          element={token && role?.toLowerCase() === "admin" ? <AddAdmin/> : <Navigate to="/" />}
+        />
+
+        <Route
+          path="/view-admin"
+          element={token && role?.toLowerCase() === "admin" ? <ViewAdmin/> : <Navigate to="/" />}
+        />
+
+        <Route
+          path="/add-staff"
+          element={token && role?.toLowerCase() === "admin" ? <AddStaff /> : <Navigate to="/" />}
+        />
+
+        <Route
+          path="/view-staff"
+          element={token && role?.toLowerCase() === "admin" ? <ViewStaff/> : <Navigate to="/" />}
         />
 
         {/*Protected Product */}
