@@ -1,0 +1,109 @@
+/* Page layout */
+.page {
+  background: #f9fafb;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Card styling */
+.card {
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Title */
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #111827;
+  text-align: center;
+}
+
+/* Form */
+.form {
+  margin-top: 12px;
+}
+
+.formGroup {
+  margin-bottom: 18px;
+}
+
+.label {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.input {
+  border-radius: 12px;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Actions */
+.actions {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.btn {
+  background: #2563eb;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.btn:hover {
+  background: #1e40af;
+  transform: scale(1.02);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* Messages */
+.msgSuccess,
+.msgError {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.msgSuccess {
+  color: #065f46;
+  background: #d1fae5;
+  border: 1px solid #10b981;
+}
+
+.msgError {
+  color: #991b1b;
+  background: #fee2e2;
+  border: 1px solid #f87171;
+}

@@ -46,8 +46,9 @@ export default function Login({ onClose, setToken, setRole }) {
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       onClose();
 
-      if (role.toLowerCase() === "admin") navigate("/admin-panel");
-      else if (role.toLowerCase() === "staff") navigate("/staff-panel");
+      if (role.toLowerCase() === "admin") navigate("/admin/panel");
+else if (role.toLowerCase() === "staff") navigate("/staff-panel");
+
     } catch (err) {
       setError(err.response?.data?.message || "Login failed.");
     }

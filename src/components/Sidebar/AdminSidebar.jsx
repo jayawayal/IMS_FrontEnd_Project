@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { 
   FaUserCircle, FaBox, FaShoppingCart, FaUsers, 
-  FaChartBar, FaStore, FaFileAlt, FaUserTie, FaCog, FaBars, FaTimes 
+  FaChartBar, FaThList, FaStore, FaFileAlt, FaUserTie, 
+  FaCog, FaBars, FaTimes 
 } from "react-icons/fa";
 import { FiBox } from "react-icons/fi";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
@@ -46,6 +47,23 @@ function AdminSidebar() {
         { path: "/view-staff", label: "View Staff" },
       ],
     },
+    {
+      label: "Categories",
+      icon: <FaThList />,
+      children: [
+        { path: "/admin/add-category", label: "Add Category" },
+        { path: "/admin/view-category", label: "View Categories" },
+      ],
+    },
+    {
+      label: "Suppliers",
+      icon: <FaStore />,
+      children: [
+        { path: "/admin/add-supplier", label: "Add Supplier" },
+        { path: "/admin/view-supplier", label: "View Suppliers" }, // ✅ fixed path
+      ],
+    },
+    { path: "/admin/products", label: "Products", icon: <FaBox /> },
     {
       label: "Products",
       icon: <FaBox />,
