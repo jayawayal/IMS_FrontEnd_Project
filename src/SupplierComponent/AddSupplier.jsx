@@ -22,52 +22,58 @@ const AddSupplier = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-    setSuccess("");
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  setError("");
+  setSuccess("");
 
-    try {
-      const token = localStorage.getItem("token"); // get JWT
-      if (!token) {
-        setError("You are not logged in!");
-        setLoading(false);
-        return;
+  try {
+    const token = localStorage.getItem("token"); // get JWT
+    if (!token) {
+      setError("You are not logged in!");
+      setLoading(false);
+      return;
+    }
+
+    const response = await axios.post(
+      "http://localhost:3000/api/suppliers/addSupliers",
+      formData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       }
+    );
 
-      const response = await axios.post(
-        "http://localhost:3000/api/suppliers/addSupliers",
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+    if (response.status === 200 || response.status === 201) {
+      setSuccess("Supplier added successfully!");
+      setFormData({
+        supplier_name: "",
+        sup_email: "",
+        sup_contact: "",
+        sup_address: "",
+        sup_gst_no: "",
+      });
 
-      if (response.status === 200 || response.status === 201) {
-        setSuccess("Supplier added successfully!");
-        setFormData({
-          supplier_name: "",
-          sup_email: "",
-          sup_contact: "",
-          sup_address: "",
-          sup_gst_no: "",
-        });
-      }
-    } catch (err) {
-  console.error(err);
+      // Clear success message after 3 seconds
+      setTimeout(() => setSuccess(""), 3000);
+    }
+  } catch (err) {
+    console.error(err);
 
-  if (err.response && err.response.data && err.response.data.message) {
-    // Show the real backend message
-    setError(err.response.data.message);
-  } else {
-    setError("Failed to add supplier. Please try again.");
+    if (err.response && err.response.data && err.response.data.message) {
+      setError(err.response.data.message);
+    } else {
+      setError("Failed to add supplier. Please try again.");
+    }
+
+    // Clear error message after 3 seconds
+    setTimeout(() => setError(""), 3000);
+  } finally {
+    setLoading(false);
   }
-}
-
-  };
+};
 
   return (
     <AdminLayout>

@@ -63,7 +63,7 @@ function AdminSidebar() {
         { path: "/admin/view-supplier", label: "View Suppliers" }, // ✅ fixed path
       ],
     },
-    { path: "/admin/products", label: "Products", icon: <FaBox /> },
+    // { path: "/admin/products", label: "Products", icon: <FaBox /> },
     {
       label: "Products",
       icon: <FaBox />,
@@ -72,7 +72,15 @@ function AdminSidebar() {
         { path: "/view-Products", label: "View product" },
       ],
     },
-    { path: "/admin/suppliers", label: "Suppliers", icon: <FaStore /> },
+    {
+      label: "Purchases",
+      icon: <FaShoppingCart />,
+      children: [
+        { path: "/add-purchase", label: "Add Purchase" },
+        { path: "/view-purchase", label: "View Purchase" },
+      ],
+    },
+    // { path: "/admin/suppliers", label: "Suppliers", icon: <FaStore /> },
     { path: "/admin/purchases", label: "Purchases", icon: <FaShoppingCart /> },
     { path: "/admin/customers", label: "Customers", icon: <FaUsers /> },
     { path: "/admin/sales", label: "Sales", icon: <FaChartBar /> },

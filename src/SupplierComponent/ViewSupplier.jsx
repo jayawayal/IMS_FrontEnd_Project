@@ -40,58 +40,58 @@ const ViewSupplier = () => {
     }
   };
 
-// Debounced search
-useEffect(() => {
-  const delayDebounce = setTimeout(() => {
-    const searchSuppliers = async () => {
-      // If search is empty, fetch all suppliers
-      if (!search.trim()) {
-        fetchSuppliers();
-        return;
-      }
-
-      try {
-        setLoading(true);
-        const token = localStorage.getItem("token");
-
-        // Use GET request with URL param
-        const res = await fetch(
-          `http://localhost:3000/api/suppliers/searchsuppbyname/${encodeURIComponent(search)}`,
-          {
-            method: "GET",
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        const result = await res.json();
-
-        if (res.ok) {
-          setSuppliers(result);
-          setMsg({ type: "", text: "" });
-        } else {
-          setSuppliers([]);
-          setMsg({ type: "error", text: result.message || "No supplier found" });
+  // Debounced search
+  useEffect(() => {
+    const delayDebounce = setTimeout(() => {
+      const searchSuppliers = async () => {
+        // If search is empty, fetch all suppliers
+        if (!search.trim()) {
+          fetchSuppliers();
+          return;
         }
-      } catch (error) {
-        console.error(error);
-        setMsg({ type: "error", text: "Search failed" });
-      } finally {
-        setLoading(false);
-      }
-    };
 
-    searchSuppliers();
-  }, 400);
+        try {
+          setLoading(true);
+          const token = localStorage.getItem("token");
 
-  return () => clearTimeout(delayDebounce);
-}, [search]);
+          // Use GET request with URL param
+          const res = await fetch(
+            `http://localhost:3000/api/suppliers/searchsuppbyname/${encodeURIComponent(search)}`,
+            {
+              method: "GET",
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
 
-// Fetch all suppliers on component mount
-useEffect(() => {
-  fetchSuppliers();
-}, []);
+          const result = await res.json();
+
+          if (res.ok) {
+            setSuppliers(result);
+            setMsg({ type: "", text: "" });
+          } else {
+            setSuppliers([]);
+            setMsg({ type: "error", text: result.message || "No supplier found" });
+          }
+        } catch (error) {
+          console.error(error);
+          setMsg({ type: "error", text: "Search failed" });
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      searchSuppliers();
+    }, 400);
+
+    return () => clearTimeout(delayDebounce);
+  }, [search]);
+
+  // Fetch all suppliers on component mount
+  useEffect(() => {
+    fetchSuppliers();
+  }, []);
 
 
   // Delete supplier
@@ -106,7 +106,7 @@ useEffect(() => {
       });
       const result = await res.json();
       if (res.ok) {
-        setSuppliers(suppliers.filter((sup) => sup.id !== id));
+        setSuppliers(suppliers.filter((sup) => sup.supplier_id !== id));
         setMsg({ type: "success", text: result.message });
       } else {
         setMsg({ type: "error", text: result.message || "Delete failed" });
@@ -115,6 +115,7 @@ useEffect(() => {
       setMsg({ type: "error", text: "Server error while deleting" });
     }
   };
+
 
   return (
     <AdminLayout>
@@ -170,36 +171,36 @@ useEffect(() => {
                   </tr>
                 </thead>
                 <tbody>
-  {suppliers.map((sup, index) => (
-    <tr key={sup.supplier_id}>
-      <td>{index + 1}</td>
-      <td>{sup.supplier_name}</td>
-      <td>{sup.sup_email}</td>
-      <td>{sup.sup_contact}</td>
-      <td>{sup.sup_address}</td>
-      <td>{sup.sup_gst_no}</td>
-      <td>
-        <div className={styles.actionButtons}>
-          <Button
-  className={styles.adminEditBtn}
-  onClick={() => navigate(`/admin/edit-supplier/${sup.supplier_id}`)}
->
-  <FaEdit /> Edit
-</Button>
+                  {suppliers.map((sup, index) => (
+                    <tr key={sup.supplier_id}>
+                      <td>{index + 1}</td>
+                      <td>{sup.supplier_name}</td>
+                      <td>{sup.sup_email}</td>
+                      <td>{sup.sup_contact}</td>
+                      <td>{sup.sup_address}</td>
+                      <td>{sup.sup_gst_no}</td>
+                      <td>
+                        <div className={styles.actionButtons}>
+                          <Button
+                            className={styles.adminEditBtn}
+                            onClick={() => navigate(`/admin/edit-supplier/${sup.supplier_id}`)}
+                          >
+                            <FaEdit /> Edit
+                          </Button>
 
 
-          <Button
-            size="sm"
-            className={styles.adminDeleteBtn}
-            onClick={() => handleDelete(sup.supplier_id)}
-          >
-            <FaTrash /> Delete
-          </Button>
-        </div>
-      </td>
-    </tr>
-  ))}
-</tbody>
+                          <Button
+                            size="sm"
+                            className={styles.adminDeleteBtn}
+                            onClick={() => handleDelete(sup.supplier_id)}
+                          >
+                            <FaTrash /> Delete
+                          </Button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
 
               </Table>
             )}
