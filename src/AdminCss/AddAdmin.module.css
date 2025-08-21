@@ -81,12 +81,13 @@
 
 /* ===== Form Inputs ===== */
 .adminForm .form-control {
-  font-size: 1.6rem;
+  font-size: 1.9rem;
   padding: 14px 15px;
   border-radius: 8px;
   border: 1px solid #ccc;
   transition: all 0.2s ease-in-out;
-  height: 50px;
+  height:6rem !important;
+  
 }
 
 .adminForm .form-control:focus {
@@ -94,7 +95,10 @@
   box-shadow: 0 0 5px rgba(65, 105, 225, 0.4);
   outline: none;
 }
-
+.adminForm  input{
+  height:4rem;
+  font-size: 1.4rem;
+}
 .adminForm textarea.form-control {
   min-height: 100px;
   resize: vertical;

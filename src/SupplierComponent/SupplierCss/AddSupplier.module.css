@@ -1,0 +1,78 @@
+.adminContainer {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.adminCard {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+}
+
+.cardTitle {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.adminForm {
+  margin-top: 10px;
+}
+
+.formLabel {
+  font-weight: 500;
+  color: #444;
+}
+
+.formInput {
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.submitButton {
+  background-color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  display: block;
+  margin: 0 auto;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #0056b3;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+  .adminCard {
+    padding: 15px;
+  }
+
+  .cardTitle {
+    font-size: 20px;
+  }
+
+  .submitButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .cardTitle {
+    font-size: 18px;
+  }
+
+  .formInput {
+    font-size: 14px;
+    padding: 8px;
+  }
+}

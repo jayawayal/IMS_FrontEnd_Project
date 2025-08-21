@@ -1,0 +1,59 @@
+/* ✅ Center text inside the table */
+.adminTable th,
+.adminTable td {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.3rem!important;
+
+  
+}
+
+.adminTable th{
+  background-color: #4e6bc3;
+  color:white;
+}
+
+
+/* ✅ Buttons container (keeps Edit & Delete centered with spacing) */
+.actionButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px; /* Proper space between buttons */
+}
+
+/* ✅ Edit Button */
+.adminEditBtn {
+  background-color: #4169e1;
+  color: #ffffff;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.adminEditBtn:hover {
+  background-color: #274bb5;
+  transform: scale(1.05);
+}
+
+/* ✅ Delete Button */
+.adminDeleteBtn {
+  background-color: #ff4d4d;
+  color: #ffffff;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.adminDeleteBtn:hover {
+  background-color: #cc0000;
+  transform: scale(1.05);
+}
