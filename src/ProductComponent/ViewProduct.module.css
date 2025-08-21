@@ -1,0 +1,275 @@
+/* ===== ViewProduct.module.css ===== */
+
+.container {
+  padding: 20px;
+  background: #f8f9fa;
+  min-height: 100vh;
+  width: 95%;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 2px;
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: royalblue;
+  margin: 0;
+  margin-left: 5px;
+}
+
+/* Search Bar */
+.searchInput {
+  flex: 1;
+  max-width: 400px; /* keeps search bar reasonable size */
+  padding: 10px 15px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: 0.3s;
+  margin-right: 5px;
+}
+
+.searchInput:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+/*Products Grid */
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 products per row */
+  gap:5rem;
+  padding: 10px;
+}
+
+/*Product Card */
+.card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Product Image */
+.productImg {
+  width: 100%;
+  height: 30rem; /* Bigger height */
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+/* Card Content */
+.cardContent {
+  padding: 12px;
+  background: #fafafa;
+  border-top: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+}
+
+
+.cardContent h3 {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #222;
+}
+
+.cardContent p {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+
+/* Responsive */
+@media (max-width: 992px) {
+  .productsGrid {
+    grid-template-columns: repeat(2, 1fr); /* 2 products per row on tablets */
+  }
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 6px;
+  padding: 20px;
+  width: 500px;
+  max-width: 90%;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.closeBtn {
+position: absolute;
+  top: 0;
+  right: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.6rem;
+  background: transparent; /* default: no background */
+  border: none;
+  cursor: pointer;
+  color: #ff5c5c; /* red X */
+  font-weight: bold;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-top-right-radius: 0; /* square edge like browser */
+  transition: background 0.3s ease, color 0.2s ease;
+}
+.closeBtn:hover {
+  background: #ff5c5c; /* red square background */
+  color: #fff; /* X turns white */
+}
+.modalImg {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.modalContent {
+  margin-top: 15px;
+}
+.viewLink {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: #007bff;
+  font-size: 1.4rem;
+  transition: color 0.3s ease;
+}
+
+.viewLink:hover {
+  color: #0056b3;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modalContent label {
+  font-weight: bold;
+  font-size: 14px;
+  color: royalblue;
+}
+
+.modalContent input,
+.modalContent select {
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 14px;
+ border: 1px solid rgb(238, 241, 241);
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+.modalActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.updateBtn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+.updateBtn:hover {
+  background: #218838;
+}
+
+.deleteBtn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+.deleteBtn:hover {
+  background: #c82333;
+}
+
+@media (max-width: 600px) {
+  .productsGrid {
+    grid-template-columns: 1fr; /* 1 product per row on mobile */
+  }
+  .productImg {
+    height: 200px;
+  }
+}
+
+/* Two-column form inside modal */
+.formRow {
+  display: flex;
+  gap: 10px;
+}
+
+.formCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+@media (max-width: 600px) {
+  .formRow {
+    flex-direction: column; /* stack on mobile */
+  }
+}
+

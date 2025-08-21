@@ -4,6 +4,7 @@ import {
   FaUserCircle, FaBox, FaShoppingCart, FaUsers, 
   FaChartBar, FaStore, FaFileAlt, FaUserTie, FaCog, FaBars, FaTimes 
 } from "react-icons/fa";
+import { FiBox } from "react-icons/fi";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import styles from "./AdminSidebar.module.css";
 
@@ -45,7 +46,14 @@ function AdminSidebar() {
         { path: "/view-staff", label: "View Staff" },
       ],
     },
-    { path: "/admin/products", label: "Products", icon: <FaBox /> },
+    {
+      label: "Products",
+      icon: <FaBox />,
+      children: [
+        { path: "/add-products", label: "Add Product" },
+        { path: "/view-Products", label: "View product" },
+      ],
+    },
     { path: "/admin/suppliers", label: "Suppliers", icon: <FaStore /> },
     { path: "/admin/purchases", label: "Purchases", icon: <FaShoppingCart /> },
     { path: "/admin/customers", label: "Customers", icon: <FaUsers /> },

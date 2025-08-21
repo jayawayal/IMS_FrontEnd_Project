@@ -9,6 +9,10 @@ import AddAdmin from "./AdminComponets/AddAdmin.jsx";
 import AddStaff from "./AdminComponets/AddStaff.jsx"
 import ViewAdmin from "./AdminComponets/ViewAdmin.jsx" // Import Add Admin page
 import ViewStaff from "./AdminComponets/ViewStaff.jsx";
+import AddProduct from "./ProductComponent/AddProduct.jsx";
+import ViewProduct from "./ProductComponent/ViewProduct.jsx";
+
+
 export default function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [role, setRole] = useState(localStorage.getItem("role"));
@@ -61,6 +65,17 @@ export default function App() {
         <Route
           path="/staff-panel"
           element={token && role?.toLowerCase() === "staff" ? <StaffPanel /> : <Navigate to="/" />}
+        />
+
+        {/*Protected Product */}
+          <Route
+          path="/add-products"
+          element={token && role?.toLowerCase() === "admin" ? <AddProduct /> : <Navigate to="/" />}
+        />
+
+        <Route
+          path="/view-Products"
+          element={token && role?.toLowerCase() === "admin" || role?.toLowerCase() === "staff" ? <ViewProduct /> : <Navigate to="/" />}
         />
 
         {/* Optional: catch-all route for unknown paths */}
