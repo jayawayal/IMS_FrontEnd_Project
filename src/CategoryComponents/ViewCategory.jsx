@@ -8,7 +8,8 @@ import {
   Row,
   Col,
 } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";  
+
 import { FaEdit, FaTrash } from "react-icons/fa";
 
 import AdminLayout from "../pages/AdminLayout";
@@ -16,12 +17,13 @@ import layoutStyles from "../Style/AdminLayout.module.css";
 import formStyles from "../AdminCss/AddAdmin.module.css";
 import styles from "../CategoryComponents/CategoryCss/ViewCategory.module.css"; 
 
+
 const ViewCategory = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [msg, setMsg] = useState({ type: "", text: "" });
   const [search, setSearch] = useState("");
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
   // Helper: normalize data into array
   const normalizeCategories = (data) => {
@@ -32,6 +34,7 @@ const ViewCategory = () => {
 
   // Fetch all categories
   const fetchCategories = async () => {
+
     try {
       setLoading(true);
       const token = localStorage.getItem("token");
@@ -176,7 +179,7 @@ const ViewCategory = () => {
                           <Button
                             size="sm"
                             className={styles.adminEditBtn}
-                            onClick={() => navigate(`/admin/edit-category/${cat.category_id}`)}
+                            onClick={() => navigate(`/admin/edit-category/${cat.category_id}`)} // Navigate without reload
                           >
                             <FaEdit /> Edit
                           </Button>

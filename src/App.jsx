@@ -25,6 +25,10 @@ import AddPurchase from "./PurchasesComponents/AddPurchase.jsx";
 import ViewPurchase from "./PurchasesComponents/ViewPurchase.jsx";
 import EditPurchase from "./PurchasesComponents/EditPurchase.jsx";
 
+import AddCustomer from "./customerComponent/AddCust.jsx";
+import ViewCustomer from "./customerComponent/ViewCustomer.jsx"
+import UpdatedCustomer from "./customerComponent/UpdateCustomer.jsx";
+
 import Sidebar from "./components/Sidebar/AdminSidebar.jsx";
 import Header from "./components/Header/AdminHeader.jsx";
 
@@ -77,13 +81,11 @@ export default function App() {
                   <Route path="/" element={<LandingPage />} />
                   <Route path="panel" element={<AdminPanel />} />
 
-                  {/* Admin management */}
-                  <Route path="add-admin" element={<AddAdmin />} />
-                  <Route path="view-admin" element={<ViewAdmin />} />
+                  <Route path="/add-admin" element={<AddAdmin />} />
+                  <Route path="/view-admin" element={<ViewAdmin />} />
 
-                  {/* Staff management */}
-                  <Route path="add-staff" element={<AddStaff />} />
-                  <Route path="view-staff" element={<ViewStaff />} />
+                  <Route path="/add-staff" element={<AddStaff />} />
+                  <Route path="/view-staff" element={<ViewStaff />} />
 
                   {/* Category management */}
                   <Route path="add-category" element={<AddCategory />} />
@@ -215,6 +217,24 @@ export default function App() {
           }
         />
 
+        <Route
+          path="/add-customer"
+          element={token && role?.toLowerCase() === "admin" || role?.toLowerCase() === "staff" ? <AddCustomer /> : <Navigate to="/" />}
+        />
+
+        <Route
+          path="/view-customer"
+          element={token && role?.toLowerCase() === "admin" || role?.toLowerCase() === "staff" ? <ViewCustomer /> : <Navigate to="/" />}
+        />
+
+        <Route
+  path="/updated-customer/:customer_id"
+  element={
+    token && (role?.toLowerCase() === "admin")
+      ? <UpdatedCustomer />
+      : <Navigate to="/" />
+  }
+/>
         {/* Catch-all */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

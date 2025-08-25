@@ -63,7 +63,7 @@ function AdminSidebar() {
         { path: "/admin/view-supplier", label: "View Suppliers" }, // ✅ fixed path
       ],
     },
-    // { path: "/admin/products", label: "Products", icon: <FaBox /> },
+    //  { path: "/admin/products", label: "Products", icon: <FaBox /> },
     {
       label: "Products",
       icon: <FaBox />,
@@ -72,6 +72,17 @@ function AdminSidebar() {
         { path: "/view-Products", label: "View product" },
       ],
     },
+    {
+      label: "Customer",
+      icon: <FaUsers />,
+      children: [
+        { path: "/add-customer", label: "Add Customer" },
+        { path: "/view-customer", label: "View Customer" },
+      ],
+    },
+
+    // { path: "/admin/suppliers", label: "Suppliers", icon: <FaStore /> },
+    // { path: "/admin/purchases", label: "Purchases", icon: <FaShoppingCart /> },
     {
   label: "Purchases",
   icon: <FaShoppingCart />,
@@ -82,8 +93,6 @@ function AdminSidebar() {
 }
 ,
 
-    // { path: "/admin/suppliers", label: "Suppliers", icon: <FaStore /> },
-    // { path: "/admin/purchases", label: "Purchases", icon: <FaShoppingCart /> },
     { path: "/admin/customers", label: "Customers", icon: <FaUsers /> },
     { path: "/admin/sales", label: "Sales", icon: <FaChartBar /> },
     { path: "/admin/reports", label: "Reports", icon: <FaFileAlt /> },
