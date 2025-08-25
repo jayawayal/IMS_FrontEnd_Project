@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import Login from "../Login/Login.jsx";
@@ -7,32 +6,44 @@ import "./Navbar.css";
 
 export default function Navbar({ setToken, setRole }) {
   const [showLoginForm, setShowLoginForm] = useState(false);
-  const navigate = useNavigate();
+  const [active, setActive] = useState("home");
 
-  const toggleLoginForm = () => {
-    setShowLoginForm((prev) => !prev);
-  };
+  const toggleLoginForm = () => setShowLoginForm((prev) => !prev);
 
-  const handleLoginSuccess = (role) => {
-    if (role === "admin") {
-      navigate("/admin-panel");
-    } else if (role === "staff") {
-      navigate("/staff-panel");
+  // Auto-close mobile menu on link click
+  const handleNavClick = () => {
+    const collapseEl = document.getElementById("navbarNav");
+    if (collapseEl && collapseEl.classList.contains("show")) {
+      // bootstrap is available because you imported bootstrap.bundle
+      const bsCollapse = new window.bootstrap.Collapse(collapseEl);
+      bsCollapse.hide();
     }
   };
 
+  // Highlight active section while scrolling
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { root: null, threshold: 0.5 }
+    );
+
+    sections.forEach((sec) => obs.observe(sec));
+    return () => sections.forEach((sec) => obs.unobserve(sec));
+  }, []);
+
   return (
     <>
-      <nav className="navbar-wrapper navbar navbar-expand-lg">
+      <nav className="navbar-wrapper navbar navbar-expand-lg fixed-top bg-white shadow-sm">
         <div className="container-fluid navbar-container">
-          <Link className="navbar-brand d-flex align-items-center" to="/">
-            <img
-              src="/public/dropbox_9769969.png"  // <-- logo in public folder
-              alt="Logo"
-              className="navbar-logo"
-            />
+          <a className="navbar-brand d-flex align-items-center" href="#home" onClick={handleNavClick}>
+            <img src="/dropbox_9769969.png" alt="Logo" className="navbar-logo" />
             <span className="navbar-title ms-2">Inventory Management System</span>
-          </Link>
+          </a>
 
           <button
             className="navbar-toggler"
@@ -49,24 +60,40 @@ export default function Navbar({ setToken, setRole }) {
           <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul className="navbar-nav nav-links align-items-lg-center">
               <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <a
+                  className={`nav-link ${active === "home" ? "active" : ""}`}
+                  href="#home"
+                  onClick={handleNavClick}
+                >
                   Home
-                </Link>
+                </a>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/about">
+                <a
+                  className={`nav-link ${active === "about" ? "active" : ""}`}
+                  href="#about"
+                  onClick={handleNavClick}
+                >
                   About
-                </Link>
+                </a>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/services">
+                <a
+                  className={`nav-link ${active === "services" ? "active" : ""}`}
+                  href="#services"
+                  onClick={handleNavClick}
+                >
                   Services
-                </Link>
+                </a>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/contact">
+                <a
+                  className={`nav-link ${active === "contact" ? "active" : ""}`}
+                  href="#contact"
+                  onClick={handleNavClick}
+                >
                   Contact
-                </Link>
+                </a>
               </li>
             </ul>
 
@@ -85,7 +112,7 @@ export default function Navbar({ setToken, setRole }) {
       {showLoginForm && (
         <Login
           onClose={toggleLoginForm}
-          onLoginSuccess={handleLoginSuccess}
+          onLoginSuccess={() => {}}
           setToken={setToken}
           setRole={setRole}
         />

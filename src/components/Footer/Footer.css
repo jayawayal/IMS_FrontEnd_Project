@@ -5,6 +5,8 @@
   text-align: center;
   font-size: 1.2rem;
   margin-top: auto;
+  background: linear-gradient(180deg, #0a2e66, #1b4f91);
+  color:white;
 }
 
 .footer-wrapper .container {
@@ -12,6 +14,7 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  
 }
 
 .footer-links {

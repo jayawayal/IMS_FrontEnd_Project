@@ -8,20 +8,27 @@ import {
   Row,
   Col,
 } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";  // ✅ Import navigation
+import { useNavigate } from "react-router-dom";
 import { FaEdit, FaTrash } from "react-icons/fa";
 
 import AdminLayout from "../pages/AdminLayout";
 import layoutStyles from "../Style/AdminLayout.module.css";
 import formStyles from "../AdminCss/AddAdmin.module.css";
-import styles from "../CategoryComponents/CategoryCss/ViewCategory.module.css"; // ✅ Custom styles for this component
+import styles from "../CategoryComponents/CategoryCss/ViewCategory.module.css"; 
 
 const ViewCategory = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [msg, setMsg] = useState({ type: "", text: "" });
   const [search, setSearch] = useState("");
-  const navigate = useNavigate();  // ✅ React Router navigation
+  const navigate = useNavigate();
+
+  // Helper: normalize data into array
+  const normalizeCategories = (data) => {
+    if (Array.isArray(data)) return data;
+    if (data && Array.isArray(data.categories)) return data.categories;
+    return [];
+  };
 
   // Fetch all categories
   const fetchCategories = async () => {
@@ -32,7 +39,8 @@ const ViewCategory = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
-      setCategories(data);
+      console.log("Fetched categories:", data);
+      setCategories(normalizeCategories(data));
     } catch {
       setMsg({ type: "error", text: "Failed to load categories" });
     } finally {
@@ -62,8 +70,9 @@ const ViewCategory = () => {
           });
 
           const result = await res.json();
+          console.log("Search result:", result);
           if (res.ok) {
-            setCategories(result);
+            setCategories(normalizeCategories(result));
             setMsg({ type: "", text: "" });
           } else {
             setCategories([]);
@@ -167,16 +176,16 @@ const ViewCategory = () => {
                           <Button
                             size="sm"
                             className={styles.adminEditBtn}
-                            onClick={() => navigate(`/admin/edit-category/${cat.category_id}`)} // ✅ Navigate without reload
+                            onClick={() => navigate(`/admin/edit-category/${cat.category_id}`)}
                           >
-                           <FaEdit /> Edit
+                            <FaEdit /> Edit
                           </Button>
                           <Button
                             size="sm"
                             className={styles.adminDeleteBtn}
                             onClick={() => handleDelete(cat.category_id)}
                           >
-                           <FaTrash />  Delete
+                            <FaTrash /> Delete
                           </Button>
                         </div>
                       </td>

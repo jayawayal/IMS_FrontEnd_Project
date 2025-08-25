@@ -73,15 +73,17 @@ function AdminSidebar() {
       ],
     },
     {
-      label: "Purchases",
-      icon: <FaShoppingCart />,
-      children: [
-        { path: "/add-purchase", label: "Add Purchase" },
-        { path: "/view-purchase", label: "View Purchase" },
-      ],
-    },
+  label: "Purchases",
+  icon: <FaShoppingCart />,
+  children: [
+    { path: "/add-purchase", label: "Add Purchase" },
+    { path: "/view-purchase", label: "View Purchase" },
+  ],
+}
+,
+
     // { path: "/admin/suppliers", label: "Suppliers", icon: <FaStore /> },
-    { path: "/admin/purchases", label: "Purchases", icon: <FaShoppingCart /> },
+    // { path: "/admin/purchases", label: "Purchases", icon: <FaShoppingCart /> },
     { path: "/admin/customers", label: "Customers", icon: <FaUsers /> },
     { path: "/admin/sales", label: "Sales", icon: <FaChartBar /> },
     { path: "/admin/reports", label: "Reports", icon: <FaFileAlt /> },

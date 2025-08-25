@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import styles from "./signup.module.css";  // ✅ import CSS module
+import styles from "./signup.module.css";  //  import CSS module
 
 const AdminSignup = ({ onClose }) => {
   const [formData, setFormData] = useState({

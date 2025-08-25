@@ -1,0 +1,235 @@
+/* General Reset */
+.section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.sectionAlt {
+  padding: 80px 20px;
+  background: #f8faff;
+}
+
+.sectionTitle {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #1a237e;
+  text-align: center;
+}
+
+/* Hero Section */
+.hero {
+  background: url("/bg-2.jpg") no-repeat center 30% / cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+/* Dark overlay for readability */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.hero h1,
+.hero p,
+.hero a {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 56px;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+.hero p {
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+
+.primaryBtn {
+  display: inline-block;
+  background: #ff9800;
+  color: white;
+  padding: 14px 32px;
+  font-size: 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.primaryBtn:hover {
+  background: #e68900;
+}
+
+/* About Section */
+.about {
+  max-width: 800px;
+  margin: 0 auto;
+  color: #444;
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Services Section */
+.services {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.serviceCard {
+  background: white;
+  border-radius: 12px;
+  padding: 30px 20px;
+  width: 290px;
+  height: 160px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.serviceCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.serviceCard h3 {
+  font-size: 22px;
+  color: #0d47a1;
+  margin-bottom: 10px;
+}
+
+.serviceCard p {
+  font-size: 15px;
+  color: #555;
+  text-align: center;
+}
+
+/* Contact Section */
+.contactSection {
+  background: linear-gradient(135deg, #f9f9f9, #eef3ff);
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.contactContainer {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.contactTitle {
+  font-size: 32px;
+font-weight: bold;
+  margin-bottom: 10px;
+  color: #1a237e;
+}
+
+.contactSubtitle {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* Contact Form */
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contactForm input,
+.contactForm textarea {
+  flex: 1;
+  padding: 14px 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.contactForm input:focus,
+.contactForm textarea:focus {
+  border-color: #1a4f9c;
+  box-shadow: 0 0 6px rgba(26, 79, 156, 0.2);
+  outline: none;
+}
+
+.contactForm textarea {
+  resize: none;
+  min-height: 130px;
+}
+
+.contactForm button {
+  background: #113f85;
+  color: #fff;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  align-self: center;
+  min-width: 180px;
+}
+
+.contactForm button:hover {
+  background: #163f7a;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .serviceCard {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 40px 15px;
+    text-align: center;
+  }
+
+  .inputGroup {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+}

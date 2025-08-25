@@ -1,27 +1,30 @@
-/* AddSupplier.module.css */
-
 /* Card container styling */
 .card {
   max-width: 900px;
-  margin: auto;
+  width: 100%;
+  margin: 20px auto;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
+  padding: 30px;
+  transition: all 0.3s ease;
 }
 
 /* Form title */
 h3 {
   font-weight: 600;
   color: #333;
+  text-align: center;
+  margin-bottom: 25px;
 }
-/* .btn-primary{
-    background-color: #007bff; */
 
 /* Input fields */
 .form-control {
   border-radius: 6px;
   border: 1px solid #ccc;
   padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
   transition: border-color 0.3s;
 }
 
@@ -43,7 +46,12 @@ label {
   border: none;
   font-weight: 500;
   border-radius: 6px;
+  padding: 12px 20px;
+  display: block;
+  margin: 20px auto 0 auto;
+  font-size: 16px;
   transition: background-color 0.3s, transform 0.2s;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -51,16 +59,96 @@ label {
   transform: translateY(-2px);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .card {
-    padding: 20px;
-  }
-}
-
 /* Error message */
 .text-danger {
   font-weight: 500;
   margin-bottom: 15px;
   text-align: center;
+}
+
+/* Responsive adjustments */
+
+/* Medium devices (tablets, 768px - 992px) */
+@media (max-width: 992px) {
+  .card {
+    padding: 25px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  .button {
+    padding: 11px 18px;
+    font-size: 15px;
+  }
+}
+
+/* Small devices (mobile landscape, 576px - 767px) */
+@media (max-width: 767px) {
+  .card {
+    padding: 20px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  .form-control {
+    padding: 9px;
+    font-size: 14px;
+  }
+
+  .button {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+/* Extra small devices (mobile portrait, <576px) */
+@media (max-width: 575px) {
+  .card {
+    padding: 15px;
+    margin: 15px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  .form-control {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+/* Large desktops (>1200px) */
+@media (min-width: 1200px) {
+  .card {
+    padding: 35px 40px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  .form-control {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .button {
+    padding: 14px 25px;
+    font-size: 17px;
+  }
 }
