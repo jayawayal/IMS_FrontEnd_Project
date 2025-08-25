@@ -32,27 +32,26 @@ export const getCustomers = async (token) => {
   }
 };
 
-export const deleteCustomer = async (id, token) => {
-  const res = await axios.delete(`${API_URL}/deleteCust/${id}`, {
+export const deleteCustomer = async (customer_id, token) => {
+  const res = await axios.delete(`${API_URL}/deleteCust/${customer_id}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
   return res.data;
 };
 
-export const getCustomerById = async (customer_id) => {
-  try {
-    const response = await axios.get(`${API_URL}/searchCustById/${customer_id}`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching customer:", error);
-    throw error;
-  }
+export const getCustomerById = async (customer_id, token) => {
+  const response = await axios.get(
+    `${API_URL}/searchCustById/${customer_id}`,
+    { headers: { Authorization: `Bearer ${token}` } }
+  );
+  return response.data;
 };
 
+
 // Update customer (basic structure)
-export const updateCustomer = async (id, updatedData, token) => {
+export const updateCustomer = async (customer_id, updatedData, token) => {
   const res = await axios.put(
-    `${API_URL}/updateCust/${id}`,
+    `${API_URL}/updateCust/${customer_id}`,
     updatedData,
     { headers: { Authorization: `Bearer ${token}` } }
   );

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import AdminLayout from "../pages/AdminLayout";
 import { getCustomerById, updateCustomer } from "../Services/CustomerService";
-import styles from "../customerComponent/UpdatedCust.module.css";
+import styles from "./UpdatedCust.module.css";
 
 const CustomerUpdateForm = () => {
   const { customer_id } = useParams();
@@ -21,8 +21,8 @@ const CustomerUpdateForm = () => {
 useEffect(() => {
   const fetchCustomer = async () => {
     try {
-      const data = await getCustomerById(customer_id);
-      // if API returns array -> use first element, else directly object
+      const token = localStorage.getItem("token");
+      const data = await getCustomerById(customer_id, token);
       setCustomer(Array.isArray(data) ? data[0] : data);
       setLoading(false);
     } catch (err) {
